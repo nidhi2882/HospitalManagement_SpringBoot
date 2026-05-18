@@ -1,11 +1,14 @@
 package com.springboot.hospitalManagement.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -63,4 +66,15 @@ public class Patient {
 	}
 
 	public Patient() {}
+
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", gender=" + gender + "]";
+	}
+	
+	@OneToOne
+	private Insurance insurance;
+	
+	@OneToMany(mappedBy = "patient")
+	private List<Appointment> apppointments;
 }
