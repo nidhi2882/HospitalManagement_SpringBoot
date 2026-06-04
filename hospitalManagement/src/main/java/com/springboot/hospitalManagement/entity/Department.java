@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -32,5 +34,11 @@ public class Department {
 	private Doctor headDoctor;
 	
 	@ManyToMany
+	@JoinTable(
+				name = "my_dept_doctors",
+				joinColumns = @JoinColumn(name = "dept_id"),
+				inverseJoinColumns = @JoinColumn(name = "doctor_id")
+			)
+	
 	private Set<Doctor> doctors = new HashSet<>();
 }

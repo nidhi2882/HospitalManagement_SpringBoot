@@ -42,4 +42,65 @@ public class Insurance {
 	
 	@OneToOne(mappedBy = "insurance")
 	private Patient patient;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getPolicyNumber() {
+		return policyNumber;
+	}
+
+	public void setPolicyNumber(String policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+
+	public String getProvider() {
+		return provider;
+	}
+
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+
+	public LocalDate getValidUntil() {
+		return validUntil;
+	}
+
+	public void setValidUntil(LocalDate validUntil) {
+		this.validUntil = validUntil;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Insurance(Long id, String policyNumber, String provider, LocalDate validUntil, LocalDateTime createdAt,
+			Patient patient) {
+		super();
+		this.id = id;
+		this.policyNumber = policyNumber;
+		this.provider = provider;
+		this.validUntil = validUntil;
+		this.createdAt = createdAt;
+		this.patient = patient;
+	}
+
+	
 }
